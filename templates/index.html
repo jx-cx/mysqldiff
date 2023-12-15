@@ -1,0 +1,38 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Table Extractor</title>
+</head>
+<body>
+<h1>SQL Table Extractor</h1>
+<form action="/api/uploadSQL" method="post" enctype="multipart/form-data">
+    <label for="sqlFile">Select SQL file:</label>
+    <input type="file" id="sqlFile" name="sqlFile" accept=".sql">
+    <br>
+    <button type="submit">Upload</button>
+</form>
+
+<hr>
+
+<h2>Extracted Table Names:</h2>
+<ul id="tableList">
+    {{ range .tableNames }}
+    <li>{{ . }}</li>
+    {{ end }}
+</ul>
+
+{{ if .error }}
+<p style="color: red;">{{ .error }}</p>
+{{ end }}
+
+<script>
+    // JavaScript code for handling form submission and updating table names
+    // ...
+
+</script>
+</body>
+</html>
